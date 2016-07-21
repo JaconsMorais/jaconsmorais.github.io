@@ -58,6 +58,7 @@ var sNumber;      //StackNumber Armazena o tamanho da pilha de chamadas.
 var lineLimit = 200;    //Limite de linhas do console de saída.
 var StringLiteral = [];	//Arranjo com os valores literais de string a serem auto liberados após uma operação
 var codeChanged = false; //variavel para controlar se o codigo foi alterado
+var intervalExecution;		//ID de setInterval
 function MemoryBlock(start, size, isAvailable){   //Objeto para gerenciamento de memória
 	this.start = start;
 	this.size = size;
