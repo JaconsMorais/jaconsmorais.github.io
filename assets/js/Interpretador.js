@@ -668,6 +668,10 @@ function interpreter(){
       t -= TAM_INT;
       chrcnt = chrcnt + h1;
       atualizarConsole(stab.slice(h2, h2+h1).join(""));
+      pc++;
+      ocnt++;
+      call_read = true;
+      return;
       break;
 
       case 29:
@@ -712,6 +716,10 @@ function interpreter(){
           atualizarConsole(str);
           t -= TAM_INT;
       }
+      pc++;
+      ocnt++;
+      call_read = true;
+      return;
       break;
 
       case 30:
@@ -1412,6 +1420,7 @@ function interpret(){
     firstLine.push(kode[pc].line-1);
     linecount = firstLine[0];
     arrayObjetoTabela = [];
+    intervalExecution = setInterval(function(){interpret();},1);
     ps = 'run';
     lncnt = 0;
     ocnt = 0;
@@ -1488,6 +1497,7 @@ function interpret(){
     removerTodaPilhaFuncoes();
     debug_op = false;
     debug = false;
+    clearInterval(intervalExecution);
     mostraItensDepuracao(false);
     limpaLinhaDepurador();
     mostraBtExecucarNovamente(true);
